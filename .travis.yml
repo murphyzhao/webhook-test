@@ -5,17 +5,5 @@ python:
 notifications:      # 邮箱通知
   email: false
 
-env:
-  - CODECOV_TOKEN="564ac929-de97-4fa1-8cba-543f127d41cc"
-
-before_install:
-  - pip install codecov 
-  - pip install coverage
-
-install: true
-
 script:
-  - coverage run tools/autotest.py
-
-after_success:
-  - codecov
+  - python tools/autotest.py
