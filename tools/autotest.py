@@ -17,3 +17,4 @@ if __name__ == '__main__':
     print platform.platform()
     print platform.version()
     print platform.architecture()
+    exit(1)
