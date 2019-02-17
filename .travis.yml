@@ -1,0 +1,6 @@
+language: python C
+python:
+  - 2.7
+
+script:
+- python tools/autotest.py
