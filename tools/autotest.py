@@ -14,6 +14,8 @@ sys.setdefaultencoding( "utf-8" )
 if __name__ == '__main__':
     print("==== In main function of (%s) ====" % (__file__))
 
+    print sys.argv
+
     print platform.platform()
     print platform.version()
     print platform.architecture()

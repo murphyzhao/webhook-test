@@ -5,5 +5,8 @@ python:
 notifications:      # 邮箱通知
   email: false
 
+env:
+ - RTT_BSP='CME_M7' RTT_TOOL_CHAIN='sourcery-arm'
+
 script:
-  - python tools/autotest.py
+  - python tools/autotest.py $RTT_BSP $RTT_TOOL_CHAIN
