@@ -3,10 +3,14 @@ language: python
 notifications:      # 邮箱通知
   email: false
 
- matrix:
-  include:
-  - python: "2.7"
-  env: RTT_BSP='stm32f429ig' RTT_TOOL_CHAIN='sourcery-arm'
+env:
+  - RTT_BSP='CME_M7' RTT_TOOL_CHAIN='sourcery-arm'
 
-script:
-  - python tools/autotest.py $RTT_BSP $RTT_TOOL_CHAIN
+jobs:
+  include:
+    - stage: build
+      script: python tools/build-A.py $RTT_BSP $RTT_TOOL_CHAIN
+    - # stage name not required, will continue to use `test`
+      script: python tools/build-A.py $RTT_BSP $RTT_TOOL_CHAIN
+    - stage: AutoTest
+      script: python tools/autotest.py $RTT_BSP $RTT_TOOL_CHAIN
