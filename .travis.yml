@@ -1,6 +1,4 @@
-language: python C
-python:
-  - 2.7
+language: python
 
 notifications:      # 邮箱通知
   email: false
