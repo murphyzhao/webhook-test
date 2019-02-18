@@ -8,9 +8,14 @@ env:
 
 jobs:
   include:
-    - stage: build
+    - stage: compile
+      rvm: 1
       script: python tools/build-A.py $RTT_BSP $RTT_TOOL_CHAIN
-    - # stage name not required, will continue to use `test`
-      script: python tools/build-A.py $RTT_BSP $RTT_TOOL_CHAIN
+    - stage: compile
+      rvm: 2
+      script: false
     - stage: AutoTest
+      rvm: 3
       script: python tools/autotest.py $RTT_BSP $RTT_TOOL_CHAIN
+  allow_failures:
+    - rvm: 2
