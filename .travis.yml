@@ -7,6 +7,7 @@ notifications:      # 邮箱通知
 
 env:
  - RTT_BSP='CME_M7' RTT_TOOL_CHAIN='sourcery-arm'
+ - RTT_BSP='apollo2' RTT_TOOL_CHAIN='sourcery-arm'
 
 script:
   - python tools/autotest.py $RTT_BSP $RTT_TOOL_CHAIN
