@@ -3,13 +3,8 @@ language: python
 notifications:      # 邮箱通知
   email: false
 
-env:
-  - RTT_BSP='CME_M7' RTT_TOOL_CHAIN='sourcery-arm'
 
-jobs:
-  include:
-    - stage: AutoTest
-      rvm: 3
-      script: 
-        - echo "helloworld"
-        - curl --request POST --header "PRIVATE-TOKEN: FwFiiCvzHsMQ7y12mX9g" --header "Content-Type: application/json"
+after_success:
+- echo "helloworld"
+
+- curl --request POST --header "PRIVATE-TOKEN: FwFiiCvzHsMQ7y12mX9g" --header "Content-Type: application/json" --data '{ "ref": "master", "variables": [ {"key": "GITHUB_ACTION", "value": "opened"}, {"key": "GITHUB_PR_NUMBER", "value": "123"}, {"key": "GITHUB_DEFAULT_BRANCH", "value": "master"}, {"key": "GITHUB_MERGE_SHA", "value": "414cb0069601a32b00bd122a2380cd283626a8e5"}, {"key": "GITHUB_HEAD_SHA", "value": "414cb0069601a32b00bd122a2380cd283626a8e5"}] }' "http://183.193.243.90:666/api/v4/projects/3/pipeline"
