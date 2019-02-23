@@ -12,6 +12,4 @@ jobs:
       rvm: 3
       script: 
         - echo "helloworld"
-        - curl --request POST
-               --header "PRIVATE-TOKEN: FwFiiCvzHsMQ7y12mX9g"
-               --header "Content-Type: application/json"
+        - curl --request POST --header "PRIVATE-TOKEN: FwFiiCvzHsMQ7y12mX9g" --header "Content-Type: application/json"
