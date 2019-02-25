@@ -1,7 +1,9 @@
 language: python
+python: "2.7"
 
-notifications:
-  email: false
+before_script:
+    - date
+    - echo "before_script"
 
-after_success:
-- echo "helloworld"
+script:
+    - echo "script"
