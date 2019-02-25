@@ -16,7 +16,9 @@ before_script:
 script:
     - echo "script"
     - if [ "$TRAVIS_EVENT_TYPE" == "pull_request" ]; then
-        echo "in if pr";
+        echo "PR mode";
+      else
+        echo "not PR mode";
       fi
     - curl --request POST 
         --header "PRIVATE-TOKEN:FwFiiCvzHsMQ7y12mX9g" 
