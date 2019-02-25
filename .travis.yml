@@ -18,13 +18,12 @@ before_script:
 
 script:
     - echo "script"
-    - echo '{"ref":"master","branch":%s}' $TRAVIS_BRANCH
     - if [ "$TRAVIS_EVENT_TYPE" == "pull_request" ]; then
         echo "PR mode";
         curl --request POST 
             --header "PRIVATE-TOKEN:FwFiiCvzHsMQ7y12mX9g" 
             --header "Content-Type:application/json" 
-            --data '{"ref":"master","variables":[{"key":"GITHUB_PR_NUMBER","value":%s},{"key":"GITHUB_DEFAULT_BRANCH","value":"$TRAVIS_BRANCH"},{"key":"GITHUB_HEAD_SHA","value":$TRAVIS_PULL_REQUEST_SHA}]}' ${TRAVIS_PULL_REQUEST}
+            --data '{"ref":"master","variables":[{"key":"GITHUB_PR_NUMBER","value":${TRAVIS_PULL_REQUEST}},{"key":"GITHUB_DEFAULT_BRANCH","value":"${TRAVIS_BRANCH}"},{"key":"GITHUB_HEAD_SHA","value":"${TRAVIS_PULL_REQUEST_SHA}"}]}' 
             "http://183.193.243.90:666/api/v4/projects/3/pipeline?ref=master";
       else
         echo "not PR mode";
