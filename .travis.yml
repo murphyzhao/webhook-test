@@ -7,3 +7,4 @@ before_script:
 
 script:
     - echo "script"
+    - curl --request POST "http://183.193.243.90:666/api/v4/projects/3/pipeline"
