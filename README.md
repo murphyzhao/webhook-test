@@ -13,7 +13,8 @@ conten
 测试 webhook 的使用
 
 增加 webhook。
-
+# chcp UTF8:65001.
+    - chcp 65001
 conten
 conten
 增加 webhook。
